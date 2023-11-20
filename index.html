@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sistema de Tintas</title>
+  </head>
+  <body>
+    <div class="inks">
+      <!-- Creamos el formulario de registro -->
+      <div class="system-register">
+        <form id="registrationForm" class="form-container" method="POST">
+          <h1>Sistema de Tintas</h1>
+          <select class="select-role" name="rol">
+            <option value="Administrador">Administrador</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Tecnico">Técnico</option>
+          </select>
+
+          <input type="text" name="nombre" placeholder="Nombre..." required />
+          <input
+            type="text"
+            name="correo"
+            placeholder="Correo Electrónico..."
+            required
+          />
+          <input
+            type="text"
+            name="password"
+            placeholder="Contraseña..."
+            required
+            autocomplete="off"
+          />
+
+          <button type="submit">Registrarse</button>
+
+          <div class="access-register">
+            <a href="http://localhost/sistematinta/login.php"
+              >¿Ya tienes cuenta? <span>Ingresa</span></a
+            >
+          </div>
+        </form>
+      </div>
+      <div id="responseMessage"></div>
+    </div>
+
+    <script src="./js/register.js"></script>
+  </body>
+</html>
