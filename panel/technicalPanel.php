@@ -33,6 +33,16 @@
             </div>
           </ul>
           <ul class="panel-admin-box">
+            <div id="inventarios" class="route-nav-box">
+              <a class="fa-solid fa-book"> </a><span> Inventarios</span>
+            </div>
+          </ul>
+          <ul class="panel-admin-box">
+            <div id="ventas" class="route-nav-box">
+              <a class="fa-solid fa-chart-simple"> </a><span> Ventas</span>
+            </div>
+          </ul>
+          <ul class="panel-admin-box">
             <div id="logout" class="route-nav-box">
               <a class="fa-solid fa-power-off"></a>
               <span> Salir</span>
