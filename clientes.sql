@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2023 a las 21:38:05
+-- Tiempo de generación: 16-12-2023 a las 01:19:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -48,10 +48,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `id_user`, `nombre`, `email`, `telefono`, `direccion`, `marca`, `modelo`, `color`, `descripcion`, `costo_revision`, `estado`, `fecha_recibo`) VALUES
-(35, 128, 'ian', 'ian@gmail.com', '11111', 'calle 123', 'Impresora Samsung', '2012', 'azul', 'cable roto', '44', 'Cancelado', '2023-11-16'),
-(37, 128, 'juan perez', 'juan@gmail.com', '1123131', 'calle 123', 'Impresora Samsung', '2010', 'verde', 'repuesto de tinta', '77', 'Arreglado', '2023-11-16'),
-(40, 137, 'juan', 'juan@hotmail.com', '2313414', 'calle 22', 'Impresora LG', '2019', 'azul', 'Cable roto', '66', 'Arreglado', '2023-11-16'),
-(41, 138, 'pedro', 'pedro@gmail.com', '2331414', 'calle 22', 'Impresora Samsung', '2010', 'azul', 'Repuesto de Tinta', '79', 'Arreglado', '2023-11-16');
+(44, 128, 'juan', 'perez@gmail.com', '242442', 'calle 1', 'impresora samsung', '2019', 'azul', 'arreglar cable al equipo', '33', 'Arreglado', '2023-12-15');
 
 --
 -- Índices para tablas volcadas
@@ -71,7 +68,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

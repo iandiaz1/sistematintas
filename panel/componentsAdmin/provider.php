@@ -1,3 +1,29 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Methods: POST');
+
+require_once '../../config.php';
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+$sql = "SELECT idcompra, empresa, contacto_empresa, direccion FROM compras";
+$result = $conn->query($sql);
+
+$proveedores = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $proveedores[] = $row;
+    }
+}
+
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,12 +38,25 @@
       <!-- Creamos el formulario para comprar los Productos al Proveedor -->
 
       <form action="" id="provider-form" class="provider-form">
-        <p>Datos Personales del Proveedor</p>
-        <input type="text" placeholder="Nombre..." name="nombre">
-        <input type="text" placeholder="Apellido..." name="apellido">
-        <input type="number" placeholder="telefono..." name="telefono">
 
+      <p style="margin-top: 10px">Seleccionar Proveedor:</p>
+        <select name="proveedor-anterior" id="proveedor-anterior" onchange="fillProviderData()">
+          <option value="">Seleccionar Proveedor</option>
+          <?php foreach ($proveedores as $proveedor) : ?>
+            <option value="<?php echo $proveedor['idcompra']; ?>" data-empresa="<?php echo $proveedor['empresa']; ?>" data-contacto="<?php echo $proveedor['contacto_empresa']; ?>" data-direccion="<?php echo $proveedor['direccion']; ?>">
+              <?php echo $proveedor['empresa']; ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+
+        <p style="margin-top: 10px">Datos de la Empresa</p>
+        <input type="text" placeholder="Nombre de la Empresa..." name="empresa" id="empresa">
+        <input type="number" placeholder="Contacto de la Empresa..." name="contacto" id="contacto">
+        <input type="text" placeholder="Dirección de Empresa..." name="direccion" id="direccion">
+
+        
         <div class="product-provider-box">
+
          <p>Seleccionar Producto:</p>
          <select name="producto" id="producto">
            <optgroup label="Tinta para Impresoras">

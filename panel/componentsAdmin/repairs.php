@@ -13,7 +13,7 @@ $clientes = array();
 
 // Obtenemos el producto para insertarlo en el formulario y enviarlo a la tabla reparaciones
 
-$sqlProductos = "SELECT producto FROM compras";
+$sqlProductos = "SELECT producto, clave FROM compras";
 $resultProductos = mysqli_query($conn, $sqlProductos);
 $productos = array();
 
@@ -24,9 +24,9 @@ if (mysqli_num_rows($resultClientes) > 0) {
 }
 
 if (mysqli_num_rows($resultProductos) > 0) {
-    while ($row = mysqli_fetch_assoc($resultProductos)) {
-        $productos[] = $row['producto'];
-    }
+  while ($row = mysqli_fetch_assoc($resultProductos)) {
+      $productos[] = array('producto' => $row['producto'], 'clave' => $row['clave']);
+  }
 }
 
 $conn->close();
@@ -116,15 +116,18 @@ $conn->close();
                     <p>Seleccionar producto del proveedor</p>
                     <select name="producto" id="producto">
                       <?php foreach ($productos as $producto): ?>
-                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                        <option value="<?php echo $producto['clave']; ?>"><?php echo $producto['producto']; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
+                 
                 </div>
                 <div class="date-repairs-equipment">
                   <p>Fecha de entrega</p>
                    <input type="date" name="fechaentrega" id="fechaentrega">
                    <input type="number" name="costoentrega" id="costoentrega" placeholder="Costo de Reparación...">
+                    <p>Seleccionar Cantidad</p>
+                    <input type="number" placeholder="Cantidad..." name="cantidad" id="cantidad">
                    <textarea name="reparacion" id="reparacion" cols="30" rows="10" placeholder="Descripción de Reparación..."></textarea>
                    <button type="submit">Enviar</button>
                 </div>

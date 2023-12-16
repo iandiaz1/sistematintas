@@ -9,7 +9,6 @@ function abrirModal(
   color,
   estado
 ) {
-  /*Creamos una funcion para recopilar datos */
   var modalBackground = document.getElementById("modalBackground-repairs");
   var modal = document.getElementById("myModal-repairs");
   var idClienteElem = document.getElementById("idcliente");
@@ -34,15 +33,12 @@ function abrirModal(
   modal.style.display = "block";
   var reparacionForm = document.getElementById("reparacionForm");
 
-  /*Preparamos los datos para registrar, insertar y actualizar el equipo reparado */
-
   reparacionForm.dataset.idcliente = idcliente;
   reparacionForm.dataset.nombre = nombre;
   reparacionForm.dataset.direccion = direccion;
   reparacionForm.dataset.telefono = telefono;
-  reparacionForm.dataset.producto = document.getElementById("producto").value;
 
-  reparacionForm.addEventListener("submit", function (event) {
+  reparacionForm.onsubmit = function (event) {
     event.preventDefault();
 
     var idcliente = reparacionForm.dataset.idcliente;
@@ -53,9 +49,12 @@ function abrirModal(
     var fechaentrega = document.getElementById("fechaentrega").value;
     var reparacion = document.getElementById("reparacion").value;
     var costoentrega = document.getElementById("costoentrega").value;
-    var producto = reparacionForm.dataset.producto;
+    var cantidad = document.getElementById("cantidad").value;
 
-    /*Enviamos los datos a traves de una solictud Fetch */
+    var selectedProducto = document.getElementById("producto");
+    var productoNombre =
+      selectedProducto.options[selectedProducto.selectedIndex].text;
+    var productoClave = selectedProducto.value;
 
     var userid = localStorage.getItem("userid");
     fetch("http://localhost/sistematinta/backend/updateRepairs.php", {
@@ -82,8 +81,12 @@ function abrirModal(
         reparacion +
         "&costoentrega=" +
         costoentrega +
-        "&producto=" +
-        producto,
+        "&productoNombre=" +
+        productoNombre +
+        "&productoClave=" +
+        productoClave +
+        "&cantidad=" +
+        cantidad,
     })
       .then((response) => {
         if (response.ok) {
@@ -95,7 +98,7 @@ function abrirModal(
       .catch((error) => {
         console.error("Error en la solicitud:", error);
       });
-  });
+  };
 }
 
 /*Función para cerrar el modal */

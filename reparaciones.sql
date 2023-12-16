@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2023 a las 21:37:47
+-- Tiempo de generación: 16-12-2023 a las 01:20:11
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -37,6 +37,8 @@ CREATE TABLE `reparaciones` (
   `reparacion` varchar(200) NOT NULL,
   `estado` varchar(100) NOT NULL,
   `producto` varchar(100) NOT NULL,
+  `clave` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
   `fecha_reparacion` date NOT NULL,
   `costo_final` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -45,14 +47,8 @@ CREATE TABLE `reparaciones` (
 -- Volcado de datos para la tabla `reparaciones`
 --
 
-INSERT INTO `reparaciones` (`idreparacion`, `id_cliente`, `id_empleado`, `nombre`, `direccion`, `telefono`, `reparacion`, `estado`, `producto`, `fecha_reparacion`, `costo_final`) VALUES
-(27, 35, 128, 'ian', 'calle 123', 11111, 'Impresora arreglada', 'Arreglado', 'Cartuchos Remanufacturados', '2023-11-16', 99),
-(28, 37, 128, 'juan perez', 'calle 123', 1123131, 'reparado', 'Arreglado', 'Cartuchos Remanufacturados', '2023-11-16', 100),
-(29, 35, 128, 'ian', 'calle 123', 11111, 'arreglado', 'Cancelado', 'Cartuchos Remanufacturados', '2023-11-16', 44),
-(31, 37, 128, 'juan perez', 'calle 123', 1123131, 'arreglado', 'Arreglado', 'Kit Recarga', '2023-11-16', 77),
-(32, 41, 138, 'pedro', 'calle 22', 2331414, 'Repuestos Agregados', 'Arreglado', 'Kit Recarga', '2023-11-16', 110),
-(33, 40, 139, 'juan', 'calle 22', 2313414, 'Solucionado', 'Arreglado', 'Kit Recarga', '2023-11-16', 200),
-(34, 40, 139, 'juan', 'calle 22', 2313414, 'Solucionado', 'Arreglado', 'Kit Recarga', '2023-11-16', 200);
+INSERT INTO `reparaciones` (`idreparacion`, `id_cliente`, `id_empleado`, `nombre`, `direccion`, `telefono`, `reparacion`, `estado`, `producto`, `clave`, `cantidad`, `fecha_reparacion`, `costo_final`) VALUES
+(57, 44, 128, 'juan', 'calle 1', 242442, 'equipo arreglado', 'Arreglado', 'Kit Recarga', 7, 4, '2023-12-15', 99);
 
 --
 -- Índices para tablas volcadas
@@ -72,7 +68,7 @@ ALTER TABLE `reparaciones`
 -- AUTO_INCREMENT de la tabla `reparaciones`
 --
 ALTER TABLE `reparaciones`
-  MODIFY `idreparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idreparacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -17,12 +17,12 @@ if (isset($_GET['idcompra'])) {
     if ($result) {
         $detallesCompra = mysqli_fetch_assoc($result);
         echo "<p>Id de compra: {$detallesCompra['idcompra']}</p>";
-        echo "<p>Nombre: {$detallesCompra['nombre_proveedor']}</p>";
-        echo "<p>Apellido: {$detallesCompra['apellido']}</p>";
-        echo "<p>Telefono: {$detallesCompra['telefono']}</p>";
+        echo "<p>Empresa: {$detallesCompra['empresa']}</p>";
+        echo "<p>Contacto Empresa: {$detallesCompra['contacto_empresa']}</p>";
         echo "<p>Producto comprado: {$detallesCompra['producto']}</p>";
         echo "<p>Precio: $ {$detallesCompra['precio']}</p>";
         echo "<p>Cantidad: {$detallesCompra['cantidad']}</p>";
+        echo "<p>Total de Compra: $ {$detallesCompra['total_gastado']}</p>";
         echo "<p>Fecha de compra: {$detallesCompra['fecha_compra']}</p>";
     } else {
         echo "Error al obtener detalles del cliente: " . mysqli_error($conn);

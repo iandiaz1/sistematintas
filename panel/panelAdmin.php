@@ -54,6 +54,21 @@
               ><span> Compras</span>
             </div>
           </ul>
+          
+          <ul class="panel-admin-box">
+            <div id="inventories" class="route-nav-box">
+              <a class="fa-solid fa-book"> </a
+              ><span> Inventarios</span>
+            </div>
+          </ul>
+
+          <ul class="panel-admin-box">
+            <div id="sales" class="route-nav-box">
+              <a class="fa-solid fa-chart-simple"> </a
+              ><span> Ventas</span>
+            </div>
+          </ul>
+
           <ul class="panel-admin-box">
             <div id="logout" class="route-nav-box">
               <a class="fa-solid fa-power-off"></a>
@@ -75,5 +90,9 @@
     <script src="../js/getDetailsShopping.js"></script>
     <script src="../js/getDetailsSales.js"></script>
     <script src="../js/getDetailsEdited.js"></script>
+    <script src="../js/getProviders.js"></script>
+    <script src="../js/registerSales.js"></script>
+    <script src="../js/previewProduct.js"></script>
+
   </body>
 </html>

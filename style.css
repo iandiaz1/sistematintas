@@ -739,6 +739,14 @@ td {
   padding: 6px;
 }
 
+#proveedor-anterior {
+  font-size: 18px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
 .provider-form button {
   margin-top: 10px;
   padding: 9px;
@@ -944,4 +952,99 @@ td {
 .provider-form-edited button:hover {
   background-color: rgb(74, 74, 203);
   color: white;
+}
+
+/****************************************************************************/
+
+.sale-form {
+  width: 90%;
+}
+
+.sale-form-box {
+  margin-top: 20px;
+  border: 1px solid gray;
+  padding: 13px;
+  border-radius: 6px;
+  box-shadow: 6px 8px 6px 3px rgb(111, 111, 111);
+  margin-bottom: 40px;
+}
+
+.sale-form-box-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sale-form-box p {
+  margin-bottom: 5px;
+}
+
+.sale-form-box input,
+.sale-form-box select {
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.table-container-admin-sales {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table-container-admin-sales td,
+.table-container-admin-sales th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  word-wrap: break-word;
+  max-width: 170px;
+  border: 1px solid rgb(148, 148, 148);
+}
+
+.sale-box-product {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-right: 40px;
+  padding: 8px;
+}
+
+.sale-box-product button {
+  padding: 9px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgb(15, 15, 156);
+  font-size: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: white;
+}
+
+.sale-box-product button:hover {
+  background-color: rgb(56, 56, 207);
+}
+
+.save-form-sale {
+  margin-top: 10px;
+}
+
+.save-form-sale i {
+  padding-left: 3px;
+}
+
+.save-form-sale button {
+  padding: 9px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: rgb(15, 15, 156);
+  font-size: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: white;
+}
+
+.save-form-sale button:hover {
+  background-color: rgb(56, 56, 207);
 }

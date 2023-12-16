@@ -1,6 +1,6 @@
 <?php
 
-//updateRepairs.php
+// updateRepairs.php
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -19,15 +19,17 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 $reparacion = $_POST['reparacion'];
 $costoentrega = $_POST['costoentrega'];
-$producto = $_POST['producto'];
+$productoNombre = $_POST['productoNombre'];
+$productoClave = $_POST['productoClave'];
+$cantidad = $_POST['cantidad'];
 
 $sqlUpdateClientes = "UPDATE clientes SET estado = '$nuevoEstado', fecha_recibo = '$fechaEntrega' WHERE id_cliente = $idCliente";
 
 if ($conn->query($sqlUpdateClientes) === TRUE) {
-    $sqlInsertReparaciones = "INSERT INTO reparaciones (id_cliente, id_empleado, nombre, direccion, telefono, reparacion, estado, producto, fecha_reparacion, costo_final) VALUES ('$idCliente', '$userid', '$nombre', '$direccion', '$telefono', '$reparacion', '$nuevoEstado', '$producto', '$fechaEntrega', '$costoentrega')";
+    $sqlInsertReparaciones = "INSERT INTO reparaciones (id_cliente, id_empleado, nombre, direccion, telefono, reparacion, estado, producto, clave, cantidad, fecha_reparacion, costo_final) VALUES ('$idCliente', '$userid', '$nombre', '$direccion', '$telefono', '$reparacion', '$nuevoEstado', '$productoNombre', '$productoClave', '$cantidad', '$fechaEntrega', '$costoentrega')";
 
     if ($conn->query($sqlInsertReparaciones) === TRUE) {
-        echo json_encode(array("message" => "Actualización y inserción exitosas"));
+        echo json_encode(array("message" => "Actualización e inserción exitosas"));
     } else {
         echo json_encode(array("message" => "Error al insertar en la tabla reparaciones: " . $conn->error));
     }

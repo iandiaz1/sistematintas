@@ -10,15 +10,15 @@ require_once '../config.php';
 // Actualizamos los datos de la tabla compras
 
 $idcompra = $_POST['idcompra'];
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$telefono = $_POST['telefono'];
+$empresa = $_POST['empresa'];
+$contactoEmpresa = $_POST['contacto'];
 $producto = $_POST['producto'];
-$precio = $_POST['precio']; 
+$precio = $_POST['precio'];
 $fechacompra = $_POST['fechacompra'];
 $cantidad = $_POST['cantidad'];
+$totalGastado = $precio * $cantidad;
 
-$sql = "UPDATE compras SET nombre_proveedor = '$nombre', apellido = '$apellido', telefono = '$telefono', producto = '$producto', precio = '$precio', fecha_compra = '$fechacompra', cantidad = '$cantidad' WHERE idcompra = $idcompra";
+$sql = "UPDATE compras SET empresa = '$empresa', contacto_empresa = '$contactoEmpresa', producto = '$producto', precio = '$precio', fecha_compra = '$fechacompra', cantidad = '$cantidad', total_gastado = '$totalGastado' WHERE idcompra = $idcompra";
 
 if ($conn->query($sql) === TRUE) {
     echo "Compra actualizada con éxito";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2023 a las 21:37:57
+-- Tiempo de generación: 16-12-2023 a las 01:20:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -29,12 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `compras` (
   `idcompra` int(11) NOT NULL,
-  `nombre_proveedor` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `telefono` varchar(100) NOT NULL,
+  `empresa` varchar(100) NOT NULL,
+  `contacto_empresa` varchar(100) NOT NULL,
+  `direccion` varchar(100) NOT NULL,
   `producto` varchar(100) NOT NULL,
   `precio` varchar(50) NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `total_gastado` int(11) NOT NULL,
+  `clave` int(11) NOT NULL,
   `fecha_compra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -42,9 +44,8 @@ CREATE TABLE `compras` (
 -- Volcado de datos para la tabla `compras`
 --
 
-INSERT INTO `compras` (`idcompra`, `nombre_proveedor`, `apellido`, `telefono`, `producto`, `precio`, `cantidad`, `fecha_compra`) VALUES
-(20, 'Pedro', 'Rey', '11233232', 'Kit Recarga', '44.99', 7, '2023-11-16'),
-(22, 'pedro', 'juarez', '242442', 'Cartuchos Originales', '35.99', 12, '2023-11-17');
+INSERT INTO `compras` (`idcompra`, `empresa`, `contacto_empresa`, `direccion`, `producto`, `precio`, `cantidad`, `total_gastado`, `clave`, `fecha_compra`) VALUES
+(50, 'Samsung', '525252', 'calle 2', 'Cartuchos Remanufacturados', '7.99', 19, 152, 7, '2023-12-15');
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +65,7 @@ ALTER TABLE `compras`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

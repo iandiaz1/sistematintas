@@ -1,9 +1,9 @@
 /*Creamos una función para obtener los detalles de la Venta realizada */
 
-async function getDetailsSales(idreparacion) {
+async function getDetailsSales(idventa) {
   try {
     const response = await fetch(
-      `http://localhost/sistematinta/backend/getDetailsSales.php?idreparacion=${idreparacion}`
+      `http://localhost/sistematinta/backend/getDetailsSales.php?idventa=${idventa}`
     );
     const data = await response.text();
 

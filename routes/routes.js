@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const reparacionesNavItem = document.getElementById("reparaciones");
   const proveedoresNavItem = document.getElementById("proveedores");
   const shoppingNavItem = document.getElementById("shopping");
+  const inventoriesNavItem = document.getElementById("inventories");
+  const saleNavItem = document.getElementById("sales");
 
   function cargarContenido(pagina) {
     fetch(pagina)
@@ -47,5 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   shoppingNavItem.addEventListener("click", function () {
     cargarContenido("componentsAdmin/shopping.php");
+  });
+
+  inventoriesNavItem.addEventListener("click", function () {
+    cargarContenido("componentsAdmin/inventories.php");
+  });
+
+  saleNavItem.addEventListener("click", function () {
+    cargarContenido("componentsAdmin/sale.php");
   });
 });

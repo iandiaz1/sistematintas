@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2023 a las 21:37:24
+-- Tiempo de generación: 16-12-2023 a las 01:20:24
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -40,10 +40,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idusuario`, `nombre`, `correo_electronico`, `password`, `role`) VALUES
-(127, 'admin', 'e@gmail.com', '$2y$10$/l5/7q4gjpgY4dBSgY7B0uAGFeI3Aqc3xrocIVBDbGvhfNxRbyC2q', 'Administrador'),
 (128, 'ian', 'admin@gmail.com', '$2y$10$lZxbhDvV0SGEeawLXD8dAeESNRC47GtegNUbgXfeClGzUgCnjWyEu', 'Administrador'),
-(138, 'ian', 'administrador@gmail.com', '$2y$10$oD.1hGdqEzyi6H.TQ9EuIOD2j12lGa/bliWy8L3f5V4fHYbeHMnAa', 'Administrador'),
-(146, 'ian', 'empleado@gmail.com', '$2y$10$1OOfmHVC0VJ9YwvlCPrTI.PXh4aMXrEZnIlDTY4A8OfANrLPf8MZ.', 'Empleado');
+(153, 'iancito', 'empleado@gmail.com', '$2y$10$7bt8KzqWWE4jEzwB.lhvlOt2BhOVGaSXNp612o.4wwI2FjTS4x7bC', 'Empleado'),
+(154, 'alfredo', 'tecnico@gmail.com', '$2y$10$81vWShq1kg07dzHuUY.XfuSgpsErvmDj5vOPnoGPeQql60Th4KQMG', 'Tecnico');
 
 --
 -- Índices para tablas volcadas
@@ -63,7 +62,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

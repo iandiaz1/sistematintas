@@ -7,20 +7,19 @@ require_once '../../config.php';
 
 // Obtenemos de la tabla todos los registros de Ventas
 
-$sqlReparaciones = "SELECT * FROM reparaciones";
-$resultReparaciones = mysqli_query($conn, $sqlReparaciones);
-$reparaciones = array();
+$sqlVentas = "SELECT * FROM ventas";
+$resultVentas = mysqli_query($conn, $sqlVentas);
+$ventas = array();
 
-if (mysqli_num_rows($resultReparaciones) > 0) {
-    while ($row = mysqli_fetch_assoc($resultReparaciones)) {
-        $reparaciones[] = $row;
+if (mysqli_num_rows($resultVentas) > 0) {
+    while ($row = mysqli_fetch_assoc($resultVentas)) {
+        $ventas[] = $row;
     }
 }
 
 
 $conn->close();
 ?>
-
 
 
 <!DOCTYPE html>
@@ -41,28 +40,30 @@ $conn->close();
       <table class="table-container-admin-house">
             <thead>
                 <tr>
-                <th>Id de Venta</th>
-                  <th>Nombre</th>
+                  <th>Id de Venta</th>
+                  <th>Nombre Cliente</th>
                   <th>Número de Teléfono</th>
-                  <th>Descripción</th>
-                  <th>Estado</th>
-                  <th>Fecha de Reparación</th>
+                  <th>Comprobante</th>
+                  <th>Fecha de Venta</th>
+                  <th>SubTotal</th>
+                  <th>Descuento</th>
                   <th>Monto Final</th>
                   <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-              <?php foreach ($reparaciones as $reparacion): ?>
+              <?php foreach ($ventas as $venta): ?>
                   <tr>
-                      <td><?php echo $reparacion['idreparacion']; ?></td>
-                      <td><?php echo $reparacion['nombre']; ?></td>
-                      <td><?php echo $reparacion['telefono']; ?></td>
-                      <td><?php echo $reparacion['reparacion']; ?></td>
-                      <td><?php echo $reparacion['estado']; ?></td>
-                      <td><?php echo $reparacion['fecha_reparacion']; ?></td>
-                      <td>$<?php echo $reparacion['costo_final']; ?></td>
+                      <td><?php echo $venta['idventa']; ?></td>
+                      <td><?php echo $venta['cliente']; ?></td>
+                      <td><?php echo $venta['numero']; ?></td>
+                      <td><?php echo $venta['comprobante']; ?></td>
+                      <td><?php echo $venta['fecha_venta']; ?></td>
+                      <td><?php echo $venta['subtotal']; ?></td>
+                      <td>% <?php echo $venta['descuento']; ?></td>
+                      <td>$<?php echo $venta['total']; ?></td>
                       <td>
-                      <button onclick="getDetailsSales(<?php echo $reparacion['idreparacion']; ?>)">
+                      <button onclick="getDetailsSales(<?php echo $venta['idventa']; ?>)">
                          <i class="fa fa-file"></i>
                       </button>
                       </td>

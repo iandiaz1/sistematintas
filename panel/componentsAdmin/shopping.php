@@ -38,12 +38,13 @@ $conn->close();
             <thead>
                 <tr>
                     <th>Id Cliente</th>
-                    <th>Nombre del Proveedor</th>
-                    <th>Apellido</th>
-                    <th>Número de Telefono</th>
-                    <th>Productos</th>
-                    <th>Precio</th>
+                    <th>Empresa</th>
+                    <th>Contacto Empresa</th>
+                    <th>Producto</th>
+                    <th>Clave</th>
+                    <th>Precio Unidad</th>
                     <th>Cantidad</th>
+                    <th>Total Gastado</th>
                     <th>Fecha de Compra</th>
                     <th>Acciones</th>
                 </tr>
@@ -52,12 +53,13 @@ $conn->close();
               <?php foreach ($compras as $compra): ?>
                   <tr>
                       <td><?php echo $compra['idcompra']; ?></td>
-                      <td><?php echo $compra['nombre_proveedor']; ?></td>
-                      <td><?php echo $compra['apellido']; ?></td>
-                      <td><?php echo $compra['telefono']; ?></td>
+                      <td><?php echo $compra['empresa']; ?></td>
+                      <td><?php echo $compra['contacto_empresa']; ?></td>
                       <td><?php echo $compra['producto']; ?></td>
+                      <td><?php echo $compra['clave']; ?></td>
                       <td>$<?php echo $compra['precio']; ?></td>
                       <td><?php echo $compra['cantidad']; ?></td>
+                      <td>$<?php echo $compra['total_gastado']; ?></td>
                       <td><?php echo $compra['fecha_compra']; ?></td>
                       <td>
                       <button onclick="getDetailsShopping(<?php echo $compra['idcompra']; ?>)">
@@ -117,10 +119,9 @@ $conn->close();
 
       <!-- Creamos el Formulario para Editar las compras guardadas en el inventario -->
       <form id="provider-form-edited" class="provider-form-edited" onsubmit="editCompra(<?php echo $compra['idcompra']; ?>)">
-        <p>Datos Personales del Proveedor</p>
-        <input type="text" placeholder="Nombre..." name="nombre">
-        <input type="text" placeholder="Apellido..." name="apellido">
-        <input type="number" placeholder="telefono..." name="telefono">
+        <p>Datos de la Empresa</p>
+        <input type="text" placeholder="Empresa..." name="empresa">
+        <input type="number" placeholder="Contacto Empresa..." name="contacto">
 
         <div class="product-provider-box-edited">
          <p>Seleccionar Producto:</p>
